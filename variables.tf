@@ -52,6 +52,13 @@ variable "cos_instance_name" {
   type        = string
 }
 
+variable "ssh_public_key" {
+  description = <<-EOD
+    Variable to specify SSH public key to login to Power virtaul server
+  EOD
+  type        = string
+}
+
 variable "name" {
   description = <<-EOD
     The name used for the new Power Workspace, Transit Gateway, and VPC.
@@ -106,13 +113,6 @@ variable "power_workspace_name" {
   EOD
   type        = string
   default     = ""
-}
-
-variable "ssh_public_key" {
-  description = <<-EOD
-    Variable to specify SSH public key to login to Power virtaul server
-  EOD
-  type        = string
 }
 
 variable "vpn_subnet_cidr" {
