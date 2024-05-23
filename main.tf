@@ -86,6 +86,15 @@ module "power" {
   location          = var.power_workspace_location
 }
 
+module "power-vs" {
+  count              = var.power_workspace_name == "" && var.transit_gateway_name == "" ? 1 : 0
+  source             = "./modules/power-vs"
+  name               = var.name
+  power_workspace_id = local.power_workspace.guid
+  ssh_public_key     = var.ssh_public_key
+  providers          = { ibm = ibm.power }
+}
+
 locals {
   power_workspace = var.transit_gateway_name == "" ? var.power_workspace_name == "" ? module.power[0].workspace : data.ibm_resource_instance.power_workspace[0] : null
   per_enabled     = var.per_override ? true : local.location.per_enabled

@@ -108,6 +108,13 @@ variable "power_workspace_name" {
   default     = ""
 }
 
+variable "ssh_public_key" {
+  description = <<-EOD
+    Variable to specify SSH public key to login to Power virtaul server
+  EOD
+  type        = string
+}
+
 variable "vpn_subnet_cidr" {
   description = <<-EOD
     Optional variable to specify the CIDR for subnet the VPN will be in. You should only need to change this
