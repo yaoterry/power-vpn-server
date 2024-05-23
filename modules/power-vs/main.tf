@@ -24,7 +24,7 @@ resource "ibm_pi_instance" "test-instance" {
   pi_instance_name     = var.name
   pi_proc_type         = "shared"
   pi_image_id          = ibm_pi_image.demo_image.image_id
-  pi_key_pair_name     = ibm_pi_key.key.key_id
+  pi_key_pair_name     = ibm_pi_key.key.name
   pi_sys_type          = "s922"
   pi_cloud_instance_id = var.power_workspace_id
   pi_pin_policy        = "none"
